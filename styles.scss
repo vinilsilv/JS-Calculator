@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'SF Pro Display', sans-serif;
+}
+
+$btn-general-color: #212430;
+$btn-general-text: #fff;
+
+$btn-options-text: #2cdaba;
+
+$btn-operation-text: #f48485;
+
+body {
+  padding: 20px;
+  margin: 0;
+  background-color: #f5f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #22252d;
+  margin-bottom: 10px;
+}
+
+.main-container {
+  background-color: #22252d;
+  height: auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.calculator-grid {
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: minmax(50px, auto) repeat(4, 50px);
+  gap: 10px;
+  background-color: #2a2d37;
+  max-width: auto;
+  padding: 30px;
+
+  & > button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    outline: none;
+    color: $btn-general-text;
+    background-color: $btn-general-color;
+    padding: 5px;
+    transition: 0.1s;
+    font-weight: 500;
+
+    &:hover {
+      box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.4);
+      z-index: 20;
+      transform: translateY(-3px);
+    }
+
+    &.option {
+      background-color: $btn-general-color;
+      color: $btn-options-text;
+    }
+
+    &.operation,
+    &.equal {
+      background-color: $btn-general-color;
+      color: $btn-operation-text;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 30px;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-height: 120px;
+
+  .previous-operand {
+    color: #f7f7f7;
+    font-size: 1.2rem;
+  }
+
+  .current-operand {
+    color: #fff;
+    font-size: 2.5rem;
+  }
+}
