@@ -2,15 +2,15 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: "SF Pro Display", sans-serif;
 }
 
-$btn-general-color: #212430;
+$btn-general-color: #2d2d2d;
 $btn-general-text: #fff;
-
-$btn-options-text: #2cdaba;
-
-$btn-operation-text: #f48485;
+$btn-options-text: #000;
+$btn-options-bg: #9f9f9f;
+$btn-operation-text: #fff;
+$btn-operation-bg: #fb9200;
 
 body {
   padding: 20px;
@@ -30,10 +30,23 @@ h1 {
 }
 
 .main-container {
-  background-color: #22252d;
+  padding: 60px 20px;
+  background-color: #000000;
   height: auto;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 50%;
+    height: 3px;
+    background-color: #f7f7f7;
+    position: absolute;
+    bottom: 15px;
+    left: 25%;
+    border-radius: 40px;
+  }
 }
 
 .calculator-grid {
@@ -44,13 +57,13 @@ h1 {
   grid-template-columns: repeat(4, 50px);
   grid-template-rows: minmax(50px, auto) repeat(4, 50px);
   gap: 10px;
-  background-color: #2a2d37;
+  background-color: transparent;
   max-width: auto;
-  padding: 30px;
+  position: relative;
 
   & > button {
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     cursor: pointer;
     font-size: 1.1rem;
     outline: none;
@@ -58,7 +71,7 @@ h1 {
     background-color: $btn-general-color;
     padding: 5px;
     transition: 0.1s;
-    font-weight: 500;
+    font-weight: 400;
 
     &:hover {
       box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.4);
@@ -67,13 +80,13 @@ h1 {
     }
 
     &.option {
-      background-color: $btn-general-color;
+      background-color: $btn-options-bg;
       color: $btn-options-text;
     }
 
     &.operation,
     &.equal {
-      background-color: $btn-general-color;
+      background-color: $btn-operation-bg;
       color: $btn-operation-text;
       font-size: 1.6rem;
     }
@@ -87,12 +100,11 @@ h1 {
 .output {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
-  padding: 10px 30px;
   word-wrap: break-word;
   word-break: break-all;
-  min-height: 120px;
+  min-height: 100px;
 
   .previous-operand {
     color: #f7f7f7;
@@ -101,6 +113,6 @@ h1 {
 
   .current-operand {
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }
